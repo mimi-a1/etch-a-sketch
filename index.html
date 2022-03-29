@@ -31,15 +31,22 @@
                 squareDiv.addEventListener('mouseout', () => {
                     squareDiv.classList.toggle('colorDiv');
                 });
-            }
+            };
 
         };
 
         drawSquare();
 
+let body = document.querySelector('body');
+let button = document.createElement('button');
+body.insertBefore(button, container);
+button.classList.add('button');
+button.textContent = 'CLEAR GRID'
 
-
-
+button.addEventListener('click', () => {
+    
+}
+)
 
     </script>
 </body>
