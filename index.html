@@ -14,11 +14,15 @@
     <div class="container"></div>
 
     <script>
-
         let container = document.querySelector('.container');
 
-        function drawSquare() {
-           
+        let body = document.querySelector('body');
+let button = document.createElement('button');
+body.insertBefore(button, container);
+button.classList.add('button');
+button.textContent = 'CLEAR GRID'
+
+        function drawSquare() {     
             for (let i = 0; i < 256; i++) {
                 let squareDiv = document.createElement('div');
                 container.appendChild(squareDiv);
@@ -31,22 +35,18 @@
                 squareDiv.addEventListener('mouseout', () => {
                     squareDiv.classList.toggle('colorDiv');
                 });
-            };
 
+                button.addEventListener('click', () => {
+                 container.removeChild(squareDiv);
+                });
+            };
         };
 
         drawSquare();
 
-let body = document.querySelector('body');
-let button = document.createElement('button');
-body.insertBefore(button, container);
-button.classList.add('button');
-button.textContent = 'CLEAR GRID'
 
-button.addEventListener('click', () => {
-    
-}
-)
+
+
 
     </script>
 </body>
