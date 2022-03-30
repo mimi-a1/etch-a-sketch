@@ -10,42 +10,58 @@
 </head>
 
 <body>
-
+    <h1>Etch-A-Sketch</h1>
     <div class="container"></div>
 
     <script>
-        let container = document.querySelector('.container');
+let container = document.querySelector('.container');
 
-        let body = document.querySelector('body');
+
+let body = document.querySelector('body');
 let button = document.createElement('button');
-body.insertBefore(button, container);
+body.appendChild(button);
 button.classList.add('button');
 button.textContent = 'CLEAR GRID'
 
-        function drawSquare() {     
-            for (let i = 0; i < 256; i++) {
-                let squareDiv = document.createElement('div');
-                container.appendChild(squareDiv);
-                squareDiv.classList.add('squareDiv');
-
-                squareDiv.addEventListener('mouseover', () => {
-                    squareDiv.classList.toggle('colorDiv');
-                });
-
-                squareDiv.addEventListener('mouseout', () => {
-                    squareDiv.classList.toggle('colorDiv');
-                });
-
-                button.addEventListener('click', () => {
-                 container.removeChild(squareDiv);
-                });
-            };
-        };
-
-        drawSquare();
+let script = document.querySelector('script');
 
 
+for (let i = 0; i < 256; i++) {
+    let squareDiv = document.createElement('div'); 
+    container.appendChild(squareDiv);
+    squareDiv.classList.add('squareDiv');
 
+    squareDiv.addEventListener('mouseover', () => {
+    squareDiv.classList.add('colorDiv');
+    });     
+};
+
+
+     
+button.addEventListener('click', () => {
+    container.remove();
+    let newContainer = document.createElement('div');
+    body.appendChild(newContainer);
+    newContainer.classList.add('newContainer');
+    
+   let newGrid = Number(prompt('Please input a number. max. 100'));
+    if (newGrid <= 100) {
+    for (let i = 0; i < (newGrid * newGrid); i++) {          
+    let squareDivNew = document.createElement('div'); 
+     
+    newContainer.appendChild(squareDivNew);
+    squareDivNew.style.width = `${(100/newGrid)}%`;
+    squareDivNew.style.height = `${(100/newGrid)}%`;
+    squareDivNew.classList.add('squareDivNew');
+
+    squareDivNew.addEventListener('mouseover', () => {
+    squareDivNew.classList.add('colorDivNew');
+    });
+    }
+    }  else if (newGrid > 100 || newGrid < 0) {
+        alert('hi');
+    } 
+    }); 
 
 
     </script>

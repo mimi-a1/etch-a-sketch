@@ -1,16 +1,26 @@
 
 html, body {
     padding: 0;
+    border: 1px solid black;
     margin: 0;
     height: 100%;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.301);
+}
+
+h1 {
+    padding: 0;
+    margin: 20px auto;
+    width: 30%; 
+    font-size: 40px;
+    text-align: center;
 }
 
 .container {
     border: 1px solid black;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    width: 500px;
+    height: 500px;
+    margin: 10px auto;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -31,16 +41,38 @@ html, body {
 }
 
 .button {
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     border: 2px solid grey;
     border-radius: 10px;
-    background-color: white;
+    background-color: antiquewhite;
     box-shadow: 1px 1px 1px grey;
+    
 }
 
 .button:hover {
-    background-color:rgba(7, 60, 207, 0.226);
+    background-color:rgba(7, 60, 207, 0.158);
+}
+
+.newContainer {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    display: flex; 
+    flex-wrap: wrap;  
+}
+
+.squareDivNew {
+    border: 1px solid rgba(0, 0, 255, 0.13);
+    box-sizing: border-box; 
+    background-color: antiquewhite; 
+}
+
+.colorDivNew {
+    background-color: red;
 }
