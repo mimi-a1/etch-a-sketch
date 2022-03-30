@@ -1,11 +1,10 @@
 
 html, body {
     padding: 0;
-    border: 1px solid black;
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.301);
+    background-color:black;
 }
 
 h1 {
@@ -14,10 +13,13 @@ h1 {
     width: 30%; 
     font-size: 40px;
     text-align: center;
+    color: white;
 }
 
 .container {
     border: 1px solid black;
+    background-color: antiquewhite; 
+    box-shadow: 0 32px 64px rgba(121, 11, 11, 0.767);
     width: 500px;
     height: 500px;
     margin: 10px auto;
@@ -27,17 +29,28 @@ h1 {
     flex-wrap: wrap;
 }
 
+
 .squareDiv {
     width: 6.25%;
     height: 6.25%;
-    border: 1px solid rgba(255, 0, 0, 0.432);
+    border: 1px solid rgba(0, 0, 255, 0.025);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: antiquewhite; 
+}
+
+.squareDivNew {
+    border: 1px solid rgba(0, 0, 255, 0.025);
+    box-sizing: border-box; 
+    background-color: antiquewhite; 
 }
 
 .colorDiv {
-    background-color: rgb(228, 248, 153);
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .button {
@@ -46,7 +59,7 @@ h1 {
     font-size: 14px;
     font-weight: bold;
     border: 2px solid grey;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: antiquewhite;
     box-shadow: 1px 1px 1px grey;
     
@@ -56,23 +69,11 @@ h1 {
     background-color:rgba(7, 60, 207, 0.158);
 }
 
-.newContainer {
-    border: 1px solid red;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    display: flex; 
-    flex-wrap: wrap;  
+.box {
+    display: flex;
+    justify-content: space-between;
 }
 
-.squareDivNew {
-    border: 1px solid rgba(0, 0, 255, 0.13);
-    box-sizing: border-box; 
-    background-color: antiquewhite; 
-}
 
-.colorDivNew {
-    background-color: red;
-}
+
+

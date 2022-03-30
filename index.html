@@ -11,15 +11,18 @@
 
 <body>
     <h1>Etch-A-Sketch</h1>
+    <div class="box">
+    <div class="buttons"></div>
     <div class="container"></div>
-
+</div>
     <script>
 let container = document.querySelector('.container');
 
 
 let body = document.querySelector('body');
+let buttons = document.querySelector('.buttons');
 let button = document.createElement('button');
-body.appendChild(button);
+buttons.appendChild(button);
 button.classList.add('button');
 button.textContent = 'CLEAR GRID'
 
@@ -35,32 +38,29 @@ for (let i = 0; i < 256; i++) {
     squareDiv.classList.add('colorDiv');
     });     
 };
-
-
-     
+   
 button.addEventListener('click', () => {
-    container.remove();
-    let newContainer = document.createElement('div');
-    body.appendChild(newContainer);
-    newContainer.classList.add('newContainer');
+ while (container.firstChild) {
+container.removeChild(container.firstChild);
+ };
     
    let newGrid = Number(prompt('Please input a number. max. 100'));
-    if (newGrid <= 100) {
+    if (newGrid <= 100 && newGrid > 0) {
     for (let i = 0; i < (newGrid * newGrid); i++) {          
     let squareDivNew = document.createElement('div'); 
      
-    newContainer.appendChild(squareDivNew);
+    container.appendChild(squareDivNew);
     squareDivNew.style.width = `${(100/newGrid)}%`;
     squareDivNew.style.height = `${(100/newGrid)}%`;
     squareDivNew.classList.add('squareDivNew');
 
     squareDivNew.addEventListener('mouseover', () => {
-    squareDivNew.classList.add('colorDivNew');
+    squareDivNew.classList.add('colorDiv');
     });
     }
     }  else if (newGrid > 100 || newGrid < 0) {
         alert('hi');
-    } 
+    }
     }); 
 
 
