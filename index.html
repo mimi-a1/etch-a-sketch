@@ -11,12 +11,20 @@
 
 <body>
     <h1>Etch-A-Sketch</h1>
-    <button class="button">CLEAR</button>
-    <div class="container"></div>
-
+    <div class="block">
+        <div class="buttons">
+            <p>Choose your color scheme:</p>
+            <button class="monoButton">Monochrome</button>
+            <button class="colorButton">Multicolor</button>
+            <button class="erase">Eraser</button>
+        </div>
+        <div class="container"></div>
+    </div>
     <script>
     let container = document.querySelector('.container');
-    let button = document.querySelector('.button');
+    let monoButton = document.querySelector('.monoButton');
+    let colorButton = document.querySelector('.colorButton');
+    let eraseButton = document.querySelector('.erase')
 
     for (let i = 0; i < 256; i++) {
         let squareDiv = document.createElement('div'); 
@@ -25,11 +33,17 @@
         squareDiv.style.cssText = `width: ${(100/16)}%; height: ${100/16}%`;
 
         squareDiv.addEventListener('mouseover', () => {
-        squareDiv.classList.add('colorDiv');
-        });     
-    };
+        squareDiv.classList.add('colorDiv2');
+        });
+
+        eraseButton.addEventListener('click', ()=> {
+            squareDiv.addEventListener('mouseover', ()=>{
+                squareDiv.classList.toggle('colorDiv2');
+                });
+            });
+        };
    
-    button.addEventListener('click', () => {
+    monoButton.addEventListener('click', () => {
         let newGrid = Number(prompt('Please input a number between 1 and 100 (inclusive) to create a new sketchpad'));
         if (newGrid <= 100 && newGrid > 0) {
             while (container.firstChild) {
@@ -45,12 +59,53 @@
                 squareDiv.addEventListener('mouseover', () => {
                     squareDiv.classList.add('colorDiv');
                 });
-            }
-        }  else if (newGrid > 100 || newGrid <= 0) {
+
+                eraseButton.addEventListener('click', ()=> {
+                    squareDiv.addEventListener('mouseover', ()=>{
+                        squareDiv.classList.toggle('colorDiv');
+                    });
+                });   
+            };
+        }  else if (newGrid > 100 || newGrid < 0) {
             alert('Please input valid number');   
+        }  else if (!newGrid) {
+            return newGrid;
         }
     }); 
 
+    colorButton.addEventListener('click', () => {
+        let newGrid = Number(prompt('Please input a number between 1 and 100 (inclusive) to create a new sketchpad'));
+        if (newGrid <= 100 && newGrid > 0) {
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            };
+
+            for (let i = 0; i < (newGrid * newGrid); i++) {          
+                let squareDiv = document.createElement('div'); 
+                container.appendChild(squareDiv);
+                squareDiv.style.cssText = `width: ${(100/newGrid)}%; height: ${(100/newGrid)}%;`;
+                squareDiv.classList.add('squareDiv');
+
+                squareDiv.addEventListener('mouseover', () => {
+                    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                    squareDiv.style.backgroundColor = "#" + randomColor; 
+                    squareDiv.style.backgroundColor = "#" + randomColor; 
+                });
+                
+                eraseButton.addEventListener('click', ()=> {
+                    squareDiv.addEventListener('mouseover', () => {
+                        squareDiv.classList.add('colorDiv3');
+                    });
+                });  
+            }
+        }  else if (newGrid > 100 || newGrid < 0) {
+            alert('Please input valid number');   
+        }  else if (!newGrid) {
+            return newGrid;
+        }
+    });
+
+    
     </script>
 </body>
 
