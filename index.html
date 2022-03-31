@@ -11,58 +11,45 @@
 
 <body>
     <h1>Etch-A-Sketch</h1>
-    <div class="box">
-    <div class="buttons"></div>
+    <button class="button">CLEAR</button>
     <div class="container"></div>
-</div>
+
     <script>
-let container = document.querySelector('.container');
+    let container = document.querySelector('.container');
+    let button = document.querySelector('.button');
 
+    for (let i = 0; i < 256; i++) {
+        let squareDiv = document.createElement('div'); 
+        container.appendChild(squareDiv);
+        squareDiv.classList.add('squareDiv');
+        squareDiv.style.cssText = `width: ${(100/16)}%; height: ${100/16}%`;
 
-let body = document.querySelector('body');
-let buttons = document.querySelector('.buttons');
-let button = document.createElement('button');
-buttons.appendChild(button);
-button.classList.add('button');
-button.textContent = 'CLEAR GRID'
-
-let script = document.querySelector('script');
-
-
-for (let i = 0; i < 256; i++) {
-    let squareDiv = document.createElement('div'); 
-    container.appendChild(squareDiv);
-    squareDiv.classList.add('squareDiv');
-
-    squareDiv.addEventListener('mouseover', () => {
-    squareDiv.classList.add('colorDiv');
-    });     
-};
+        squareDiv.addEventListener('mouseover', () => {
+        squareDiv.classList.add('colorDiv');
+        });     
+    };
    
-button.addEventListener('click', () => {
- while (container.firstChild) {
-container.removeChild(container.firstChild);
- };
-    
-   let newGrid = Number(prompt('Please input a number. max. 100'));
-    if (newGrid <= 100 && newGrid > 0) {
-    for (let i = 0; i < (newGrid * newGrid); i++) {          
-    let squareDivNew = document.createElement('div'); 
-     
-    container.appendChild(squareDivNew);
-    squareDivNew.style.width = `${(100/newGrid)}%`;
-    squareDivNew.style.height = `${(100/newGrid)}%`;
-    squareDivNew.classList.add('squareDivNew');
+    button.addEventListener('click', () => {
+        let newGrid = Number(prompt('Please input a number between 1 and 100 (inclusive) to create a new sketchpad'));
+        if (newGrid <= 100 && newGrid > 0) {
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            };
 
-    squareDivNew.addEventListener('mouseover', () => {
-    squareDivNew.classList.add('colorDiv');
-    });
-    }
-    }  else if (newGrid > 100 || newGrid < 0) {
-        alert('hi');
-    }
+            for (let i = 0; i < (newGrid * newGrid); i++) {          
+                let squareDiv = document.createElement('div'); 
+                container.appendChild(squareDiv);
+                squareDiv.style.cssText = `width: ${(100/newGrid)}%; height: ${(100/newGrid)}%`;
+                squareDiv.classList.add('squareDiv');
+
+                squareDiv.addEventListener('mouseover', () => {
+                    squareDiv.classList.add('colorDiv');
+                });
+            }
+        }  else if (newGrid > 100 || newGrid <= 0) {
+            alert('Please input valid number');   
+        }
     }); 
-
 
     </script>
 </body>

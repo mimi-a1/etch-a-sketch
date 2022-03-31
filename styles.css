@@ -1,4 +1,3 @@
-
 html, body {
     padding: 0;
     margin: 0;
@@ -10,10 +9,11 @@ html, body {
 h1 {
     padding: 0;
     margin: 20px auto;
-    width: 30%; 
+    width: 25%; 
     font-size: 40px;
     text-align: center;
     color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .container {
@@ -31,18 +31,10 @@ h1 {
 
 
 .squareDiv {
-    width: 6.25%;
-    height: 6.25%;
     border: 1px solid rgba(0, 0, 255, 0.025);
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: antiquewhite; 
-}
-
-.squareDivNew {
-    border: 1px solid rgba(0, 0, 255, 0.025);
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-color: antiquewhite; 
 }
 
@@ -58,20 +50,14 @@ h1 {
     margin: 10px;
     font-size: 14px;
     font-weight: bold;
-    border: 2px solid grey;
-    border-radius: 5px;
+    border: 1px solid grey;
+    border-radius: 30%;
     background-color: antiquewhite;
-    box-shadow: 1px 1px 1px grey;
-    
+    box-shadow: 1px 1px 1px grey;  
 }
 
 .button:hover {
     background-color:rgba(7, 60, 207, 0.158);
-}
-
-.box {
-    display: flex;
-    justify-content: space-between;
 }
 
 
