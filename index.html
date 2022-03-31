@@ -16,7 +16,7 @@
             <p>Choose your color scheme:</p>
             <button class="monoButton">Monochrome</button>
             <button class="colorButton">Multicolor</button>
-            <button class="erase">Eraser</button>
+            <button class="erase"></button>
         </div>
         <div class="container"></div>
     </div>
@@ -40,8 +40,11 @@
             squareDiv.addEventListener('mouseover', ()=>{
                 squareDiv.classList.toggle('colorDiv2');
                 });
-            });
-        };
+            });  
+        }; 
+
+ 
+  
    
     monoButton.addEventListener('click', () => {
         let newGrid = Number(prompt('Please input a number between 1 and 100 (inclusive) to create a new sketchpad'));
@@ -66,7 +69,7 @@
                     });
                 });   
             };
-        }  else if (newGrid > 100 || newGrid < 0) {
+        }  else if (newGrid > 100 || newGrid < 0 || (!Number.isInteger(newGrid))) {
             alert('Please input valid number');   
         }  else if (!newGrid) {
             return newGrid;
@@ -89,23 +92,43 @@
                 squareDiv.addEventListener('mouseover', () => {
                     let randomColor = Math.floor(Math.random()*16777215).toString(16);
                     squareDiv.style.backgroundColor = "#" + randomColor; 
-                    squareDiv.style.backgroundColor = "#" + randomColor; 
+                    squareDiv.classList.add('divStyle');
                 });
-                
-                eraseButton.addEventListener('click', ()=> {
-                    squareDiv.addEventListener('mouseover', () => {
-                        squareDiv.classList.add('colorDiv3');
-                    });
-                });  
+              
+                let click = 1;
+            eraseButton.addEventListener('click', ()=> {
+                ++click;
+                if (click % 2) {
+                    squareDiv.addEventListener('mouseover', ()=>{
+                        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        squareDiv.style.backgroundColor = "#" + randomColor; 
+                        squareDiv.classList.add('divStyle');
+                    });     
+                } else if (!(click % 2)) {
+                    squareDiv.addEventListener('mouseover', ()=>{
+                        squareDiv.style.backgroundColor = "antiquewhite"; 
+                    }); 
+                }    
+            }); 
             }
-        }  else if (newGrid > 100 || newGrid < 0) {
+        }  else if (newGrid > 100 || newGrid < 0 || (!Number.isInteger(newGrid))) {
             alert('Please input valid number');   
         }  else if (!newGrid) {
             return newGrid;
         }
     });
 
-    
+    eraseButton.textContent = "Eraser"
+    let buttonClick = 1;
+    eraseButton.addEventListener('click', ()=> {
+        ++buttonClick;
+        if (!(buttonClick % 2)) {
+            eraseButton.textContent = "Pen"
+        } else {
+            eraseButton.textContent = "Eraser"  
+        };
+    });
+
     </script>
 </body>
 

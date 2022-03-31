@@ -26,25 +26,18 @@ h1 {
 
 .colorDiv {
     background-color: black;
-    border: 1px solid black;
     border-radius: 3px;
-    box-sizing: border-box;
 }
 
 .colorDiv2 {
     background-color: red;
-    border: 1px solid red;
     border-radius: 3px;
-    box-sizing: border-box;
 }
 
-.colorDiv3 {
-    border: 1px solid rgba(0, 0, 255, 0.025);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: antiquewhite !important;
+.divStyle {
+    border-radius: 3px;
 }
+
 
 button:hover {
     background-color: antiquewhite;
