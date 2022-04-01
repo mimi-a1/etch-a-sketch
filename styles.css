@@ -92,3 +92,12 @@ p {
     font-family: "Lucida Console", "Courier New", monospace;
     margin: 0;
 }
+
+.footer {
+    width: 40%;
+    color: white;
+    margin: 20px auto;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
