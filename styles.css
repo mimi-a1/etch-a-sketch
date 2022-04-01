@@ -26,21 +26,22 @@ h1 {
 
 .colorDiv {
     background-color: black;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .colorDiv2 {
     background-color: red;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .divStyle {
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 
 button:hover {
-    background-color: antiquewhite;
+    background-color:black;
+    color: antiquewhite;
 }
 
 .block {
@@ -50,14 +51,13 @@ button:hover {
 }
 
 .buttons {
-    min-width: 10%;
     height: 50%;
     padding: 5px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
     box-sizing: border-box;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 30px;
 }
 
@@ -66,9 +66,9 @@ button:hover {
     background-color: antiquewhite; 
     box-shadow: 0 32px 64px rgba(255, 0, 0, 0.767);
     width: 700px;
-    height: 90%; 
-    margin-left: 5%;
-    margin-right: 10%;
+    height: 100%; 
+    margin-left: 3%;
+    margin-right: 3%;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -76,12 +76,21 @@ button:hover {
 }
 
 button {
-    width: 100%;
+    width: 120px;
+    height: 120px;
     padding: 15px;
-    border-radius: 10px;
-    background-color:beige;
+    border-radius: 7px;
+    background-color: antiquewhite;
+    border: 1px solid white;
+    box-shadow: 0 32px 64px rgba(255, 0, 0, 0.3);
+    font-size: 15px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 auto;
 }
 
 p {
     color: white;
+    font-size: 18px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0;
 }
